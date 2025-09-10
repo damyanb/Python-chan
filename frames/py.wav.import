@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/py.wav-a1bf708aa05901a8a3f2b5904b655e54.sample"
+
+[deps]
+
+source_file="res://frames/py.wav"
+dest_files=[ "res://.import/py.wav-a1bf708aa05901a8a3f2b5904b655e54.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

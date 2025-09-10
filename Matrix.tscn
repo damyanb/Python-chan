@@ -1,0 +1,60 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://frames/pythonchan6.png" type="Texture" id=1]
+[ext_resource path="res://frames/pythonchan7.png" type="Texture" id=2]
+[ext_resource path="res://frames/pythonchan2.png" type="Texture" id=3]
+[ext_resource path="res://frames/pythonchan4.png" type="Texture" id=4]
+[ext_resource path="res://frames/pythonchan5.png" type="Texture" id=5]
+[ext_resource path="res://frames/pythonchan3.png" type="Texture" id=6]
+[ext_resource path="res://frames/pythonchan1.png" type="Texture" id=7]
+[ext_resource path="res://Matrix.gd" type="Script" id=8]
+[ext_resource path="res://python.gd" type="Script" id=9]
+[ext_resource path="res://frames/py.wav" type="AudioStream" id=10]
+[ext_resource path="res://chin.gd" type="Script" id=12]
+[ext_resource path="res://frames/py2.wav" type="AudioStream" id=13]
+[ext_resource path="res://pun.gd" type="Script" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "clickabajo",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "clickenmedio",
+"speed": 11.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "tranqui",
+"speed": 11.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "clickarriba",
+"speed": 5.0
+} ]
+
+[node name="Matrix" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="python" type="AnimatedSprite" parent="."]
+position = Vector2( 107, 183 )
+frames = SubResource( 1 )
+animation = "clickenmedio"
+playing = true
+script = ExtResource( 9 )
+
+[node name="chin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -18.004
+script = ExtResource( 12 )
+
+[node name="pun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -18.296
+script = ExtResource( 14 )
+[connection signal="chocar" from="python" to="pun" method="_on_python_chocar"]
+[connection signal="play" from="python" to="chin" method="_on_python_play"]
